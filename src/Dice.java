@@ -1,5 +1,5 @@
 
-public class Dice {
+public class Dice implements Comparable<Dice>{
 	
 	private int num;
 	public boolean hold;
@@ -21,4 +21,14 @@ public class Dice {
 	public String toString() {
 		return "" + num;
 	}
+
+	public int getValue() {
+		return num;
+	}
+
+	@Override
+	public int compareTo(Dice o) {
+		return Integer.compare(this.getValue(), o.getValue());
+	}
+
 }
