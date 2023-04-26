@@ -8,7 +8,6 @@ public class logic {
     private static final int FOURTH = 3;
     private static final int FIFTH = 4;
     public static final int NUMBER_OF_DICE = 5;
-
     public boolean isYahtzeeBonus = false;
 
 
