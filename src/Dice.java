@@ -72,5 +72,6 @@ public class Dice implements Comparable<Dice>{
 		return Integer.compare(this.getValue(), o.getValue());
 	}
 
+	
 }
 
