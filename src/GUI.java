@@ -1,5 +1,5 @@
-
 import java.awt.Color;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -7,14 +7,52 @@ import javax.swing.*;
 
 
 public class GUI {
-	public Dice d1;
-	public Dice d2;
-	public Dice d3;
-	public Dice d4;
-	public Dice d5;
+	public Dice dice1;
+	public Dice dice2;
+	public Dice dice3;
+	public Dice dice4;
+	public Dice dice5;
 	
 	public static void main(String args[]) {
+		makeScoreBoard();
+		makeGameBoard();
+	}
+	
+	public static void makeScoreBoard() {
+		JFrame gui = new JFrame("Score Board");
+		JLabel scoreBoard = new JLabel("<html><p style='font-size:20px'> Score Board </p></html>");
+		scoreBoard.setBounds(175,25,150,40);
+		JPanel p = new JPanel();
+		p.setBackground(Color.LIGHT_GRAY);
 		
+		ScoreCard game = new ScoreCard();
+		String[] strs = game.toString().split("%n");
+		
+		GridLayout grid = new GridLayout(0,2);
+		JPanel scoreCard = new JPanel();
+		scoreCard.setLayout(grid);
+		
+		for(String s: strs) {
+			JLabel l = new JLabel(s);
+			scoreCard.add(l);
+			
+		}
+		
+		scoreCard.setBackground(Color.WHITE);
+		
+		
+		scoreCard.setBounds(12,100,476,565);
+		gui.add(scoreBoard);
+		gui.add(scoreCard);
+		gui.add(p);
+		gui.setSize(500,700);
+		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		gui.setResizable(false);
+		gui.setVisible(true);
+
+	}
+	
+	public static void makeGameBoard() {
 		//Create Dice
 		Dice dice1 = new Dice();
 		dice1.dice.setLocation(60,110);
@@ -74,6 +112,6 @@ public class GUI {
 		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		gui.setResizable(false);
 		gui.setVisible(true);
-
+		gui.setLocationRelativeTo(null);
 	}
 }
