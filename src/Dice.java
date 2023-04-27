@@ -54,6 +54,7 @@ public class Dice implements Comparable<Dice>{
 	public void unHold() {hold = false;}
 	
 	public int roll() {
+
 		if(!hold) num = (int) ((Math.random() * 6) + 1);
 		button.setText(num + "");
 		return num;

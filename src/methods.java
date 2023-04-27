@@ -51,17 +51,21 @@ public class methods {
         }
     }
 
+    public int gameRound(){
+        return round;
+    }
+
     // The player may re-roll any number of the 5 dice an additional 2 times per round, totaling to 3 dice rolls per round.
     // That is, you roll the dice and then choose to reroll a subset of dice a second time, then again for the third time.
     // When rerolling the dice in a round, you may reroll any subset of dice or all of the dice per reroll.
     // At the end of the 13th round, all the boxes which can be scored in must be filled. That is, all unscored boxes will be defaulted with a 0.
 
 
+
+
+
     // The player must score once in each category. That is, a player may not choose to skip scoring a category even if they can score 0 in all categories.
     // The player may score in any category at any time in the game, even if the player has not rolled the dice yet.
-
-
-
 
 }
 
