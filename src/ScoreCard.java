@@ -56,35 +56,8 @@ public class ScoreCard {
         return round;
     }
     
-    @Override
-    public String toString() {
-    	String ret = "Ones=" + isOnes + "%n";
-    	ret += "Twos=" + isTwos + "%n";
-    	ret += "Threes=" + isThrees + "%n";
-    	ret += "Fours=" + isFours + "%n";
-    	ret += "Fives=" + isFives + "%n";
-    	ret += "Sixes=" + isSixes + "%n";
-    	ret += "Upper Total=" + isUpperTotal + "%n";
-    	ret += " " + "%n";
-    	ret += " " + "%n";
-    	ret += " " + "%n";
-    	ret += "Three Of A Kind=" + isThreeOfAKind + "%n";
-    	ret += "Four Of A Kind=" + isFourOfAKind + "%n";
-    	ret += "Full House=" + isFullHouse + "%n";
-    	ret += "Small Straight=" + isSmallStraight + "%n";
-    	ret += "Large Straight=" + isLargeStraight + "%n";
-    	ret += "Yahtzee=" + isYahtzee + "%n";
-    	ret += "Chance=" + isChance + "%n";
-    	ret += "Bonus=" + isBonus + "%n";
-    	ret += "Lower Total=" + isLowerTotal + "%n";
-    	ret += " " + "%n";
-    	ret += " " + "%n";
-    	ret += " " + "%n";
-    	ret += "Grand Total=" + isGrandTotal + "%n";
-    	ret += "Rounds=" + gameRound();
-    	
-    	return ret;
-    }
+
+
     
     // The player may re-roll any number of the 5 dice an additional 2 times per round, totaling to 3 dice rolls per round.
     // That is, you roll the dice and then choose to reroll a subset of dice a second time, then again for the third time.

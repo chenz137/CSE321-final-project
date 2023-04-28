@@ -1,3 +1,4 @@
+package Yahtzee;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -67,6 +68,25 @@ public class methods {
     // The player must score once in each category. That is, a player may not choose to skip scoring a category even if they can score 0 in all categories.
     // The player may score in any category at any time in the game, even if the player has not rolled the dice yet.
 
+
+    public String toString() {
+        String ret = "Ones=" + isOnes + "%n";
+        ret += "Twos=" + isTwos + "%n";
+        ret += "Threes=" + isThrees + "%n";
+        ret += "Fours=" + isFours + "%n";
+        ret += "Fives=" + isFives + "%n";
+        ret += "Sixes=" + isSixes + "%n";
+        ret += "Three Of A Kind=" + isThreeOfAKind + "%n";
+        ret += "Four Of A Kind=" + isFourOfAKind + "%n";
+        ret += "Full House=" + isFullHouse + "%n";
+        ret += "Small Straight=" + isSmallStraight + "%n";
+        ret += "Large Straight=" + isLargeStraight + "%n";
+        ret += "Yahtzee=" + isYahtzee + "%n";
+        ret += "Chance=" + isChance + "%n";
+        ret += "Grand Total=" + isGrandTotal + "%n";
+        ret += "Rounds=" + gameRound();
+        return ret;
+    }
 }
 
 

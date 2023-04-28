@@ -1,3 +1,4 @@
+package Yahtzee;
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -23,9 +24,9 @@ public class Dice implements Comparable<Dice>{
 		dice = new JPanel();
 		dice.setBackground(Color.LIGHT_GRAY);
 		dice.setLayout(null);
-		dice.setSize(70,90);
+		dice.setSize(250,150);
 		button = new JButton(num + "");
-		button.setBounds(-5,15,80,80);
+		button.setBounds(0,15,100,100);
 		//button.setBorderPainted(false);
 		head = new JLabel(" ");
 		head.setBounds(21,0,70,20);
