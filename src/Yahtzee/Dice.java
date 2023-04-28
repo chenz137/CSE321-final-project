@@ -24,7 +24,7 @@ public class Dice implements Comparable<Dice>{
 		dice = new JPanel();
 		dice.setBackground(Color.LIGHT_GRAY);
 		dice.setLayout(null);
-		dice.setSize(250,150);
+		dice.setSize(100,150);
 		button = new JButton(num + "");
 		button.setBounds(0,15,100,100);
 		//button.setBorderPainted(false);
@@ -54,7 +54,6 @@ public class Dice implements Comparable<Dice>{
 	public void unHold() {hold = false;}
 	
 	public int roll() {
-
 		if(!hold) num = (int) ((Math.random() * 6) + 1);
 		button.setText(num + "");
 		return num;

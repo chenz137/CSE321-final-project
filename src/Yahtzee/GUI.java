@@ -14,7 +14,6 @@ public class GUI {
 	public Dice dice5;
 	
 	public static void main(String args[]) {
-		makeScoreBoard();
 		makeGameBoard();
 	}
 
@@ -26,40 +25,6 @@ public class GUI {
 		numList.add(dice4);
 		numList.add(dice5);
 		return numList;
-	}
-
-
-	public static void makeScoreBoard() {
-		JFrame gui = new JFrame("Score Board");
-
-
-		JPanel p = new JPanel();
-		p.setBackground(Color.LIGHT_GRAY);
-
-		methods game = new methods();
-		String[] strs = game.toString().split("%n");
-
-		GridLayout grid = new GridLayout(0,2);
-		JPanel scoreCard = new JPanel();
-		scoreCard.setLayout(grid);
-
-		for(String s: strs) {
-			JLabel l = new JLabel(s);
-			scoreCard.add(l);
-
-		}
-
-		scoreCard.setBackground(Color.WHITE);
-
-
-		scoreCard.setBounds(12,100,476,565);
-		gui.add(scoreCard);
-		gui.add(p);
-		gui.setSize(500,700);
-		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		gui.setResizable(false);
-		gui.setVisible(true);
-
 	}
 	
 	public static void makeGameBoard() {
@@ -74,7 +39,6 @@ public class GUI {
 			JLabel l = new JLabel(s);
 			scoreCard.add(l);
 		}
-		scoreCard.setBackground(Color.WHITE);
 
 
 
@@ -100,6 +64,8 @@ public class GUI {
 		JLabel yahtzee = new JLabel("<html><p style='font-size:20px'> Yahtzee </p></html>");
 		yahtzee.setBounds(450,50,100,40);
 		
+		JLabel round = new JLabel("<html><p style='font-size:20px'>" + game.gameRound() + "</p></html>");
+		round.setBounds(450,550,200,40);
 
 		//Roll Button
 		JButton roll = new JButton("Roll!");
@@ -118,9 +84,6 @@ public class GUI {
 
 
 		//Add Elements
-		gui.add(yahtzee);
-		gui.add(scoreCard);
-
 		gui.add(dice1.dice);
 		gui.add(dice2.dice);
 		gui.add(dice3.dice);
@@ -128,10 +91,12 @@ public class GUI {
 		gui.add(dice5.dice);
 		gui.add(roll);
 
-
 		//Make the Background
 		JPanel p = new JPanel();
 		p.setBackground(Color.LIGHT_GRAY);
+		gui.add(yahtzee);
+		gui.add(scoreCard);
+		gui.add(round);
 		gui.add(p);
 		gui.setSize(1000,1000);
 		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

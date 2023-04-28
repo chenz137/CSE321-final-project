@@ -20,7 +20,7 @@ public class methods {
     int isUpperTotal = 0;
     int isLowerTotal = 0;
     int isGrandTotal = 0;
-    int round = 0;
+    static int round = 0;
 
     // map to store the scorecard
     Map <String, Integer> scoreCard = new HashMap<String, Integer>();
@@ -42,7 +42,7 @@ public class methods {
     }
 
     // The game lasts 13 rounds of rolling and scoring.
-    public boolean gameEnd() {
+    public static boolean gameEnd() {
         if (round < 13) {
             round++;
             return false;
@@ -52,8 +52,8 @@ public class methods {
         }
     }
 
-    public int gameRound(){
-        return round;
+    public String gameRound(){
+        return "Round " + round;
     }
 
     // The player may re-roll any number of the 5 dice an additional 2 times per round, totaling to 3 dice rolls per round.
@@ -83,8 +83,6 @@ public class methods {
         ret += "Large Straight=" + isLargeStraight + "%n";
         ret += "Yahtzee=" + isYahtzee + "%n";
         ret += "Chance=" + isChance + "%n";
-        ret += "Grand Total=" + isGrandTotal + "%n";
-        ret += "Rounds=" + gameRound();
         return ret;
     }
 }
