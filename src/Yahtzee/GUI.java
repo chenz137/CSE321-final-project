@@ -7,17 +7,17 @@ import java.util.ArrayList;
 
 
 public class GUI {
-	public Dice dice1;
-	public Dice dice2;
-	public Dice dice3;
-	public Dice dice4;
-	public Dice dice5;
-	
+	public static Dice dice1;
+	public static Dice dice2;
+	public static Dice dice3;
+	public static Dice dice4;
+	public static Dice dice5;
+
 	public static void main(String args[]) {
 		makeGameBoard();
 	}
 
-	public ArrayList<Dice> diceValues(Dice dice1, Dice dice2, Dice dice3, Dice dice4, Dice dice5) {
+	public static ArrayList<Dice> diceValues() {
 		ArrayList <Dice> numList = new ArrayList<> ();
 		numList.add(dice1);
 		numList.add(dice2);
@@ -34,12 +34,12 @@ public class GUI {
 		GridLayout grid = new GridLayout(0,6);
 		JPanel scoreCard = new JPanel();
 		scoreCard.setLayout(grid);
-		scoreCard.setBounds(25,100,950,400);
+		scoreCard.setBounds(30,100,950,400);
 		for(String s: strs) {
 			JLabel l = new JLabel(s);
 			scoreCard.add(l);
 		}
-
+		scoreCard.setBackground(Color.LIGHT_GRAY);
 
 
 		//Create Dice
@@ -81,7 +81,6 @@ public class GUI {
 				dice5.roll();
 			}
 		});
-
 
 		//Add Elements
 		gui.add(dice1.dice);

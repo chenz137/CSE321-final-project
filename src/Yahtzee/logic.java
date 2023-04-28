@@ -80,7 +80,7 @@ public class logic {
     }
 
     // If the user has over 63 points in the upper section, then they receive a bonus of 35 points.
-    public int isBonus(int upperScore) {
+    public static int isBonus(int upperScore) {
         if (upperScore >= 63) {
             return 35;
         } else {

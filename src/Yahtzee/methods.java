@@ -1,4 +1,5 @@
 package Yahtzee;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,7 +39,7 @@ public class methods {
         scoreCard.put("Large Straight", isLargeStraight);
         scoreCard.put("Yahtzee", isYahtzee);
         scoreCard.put("Chance", isChance);
-        scoreCard.put("Grand Total", isGrandTotal);
+        scoreCard.put("Grand Total", getIsGrandTotal());
     }
 
     // The game lasts 13 rounds of rolling and scoring.
@@ -52,6 +53,23 @@ public class methods {
         }
     }
 
+    public int getIsUpperTotal() {
+        isUpperTotal = isOnes + isTwos + isThrees + isFours + isFives + isSixes;
+        int bonus = logic.isBonus(isUpperTotal);
+        return isUpperTotal + bonus;
+    }
+
+    public int getIsLowerTotal() {
+        isLowerTotal = isThreeOfAKind + isFourOfAKind + isFullHouse + isSmallStraight + isLargeStraight + isYahtzee + isChance;
+        return isLowerTotal;
+    }
+
+    public int getIsGrandTotal() {
+        isGrandTotal = getIsUpperTotal() + getIsLowerTotal();
+        scoreCard.put("Grand Total", isGrandTotal);
+        return isGrandTotal;
+    }
+
     public String gameRound(){
         return "Round " + round;
     }
@@ -60,8 +78,6 @@ public class methods {
     // That is, you roll the dice and then choose to reroll a subset of dice a second time, then again for the third time.
     // When rerolling the dice in a round, you may reroll any subset of dice or all of the dice per reroll.
     // At the end of the 13th round, all the boxes which can be scored in must be filled. That is, all unscored boxes will be defaulted with a 0.
-
-
 
 
 
