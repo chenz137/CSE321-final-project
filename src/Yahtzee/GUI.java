@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 
 public class GUI {
@@ -16,6 +17,17 @@ public class GUI {
 		makeScoreBoard();
 		makeGameBoard();
 	}
+
+	public ArrayList<Dice> diceValues(Dice dice1, Dice dice2, Dice dice3, Dice dice4, Dice dice5) {
+		ArrayList <Dice> numList = new ArrayList<> ();
+		numList.add(dice1);
+		numList.add(dice2);
+		numList.add(dice3);
+		numList.add(dice4);
+		numList.add(dice5);
+		return numList;
+	}
+
 
 	public static void makeScoreBoard() {
 		JFrame gui = new JFrame("Score Board");

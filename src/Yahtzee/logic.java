@@ -14,7 +14,7 @@ public class logic {
 
     //upper section
     //if the user has any 1's in the roll, they can add the total of the 1’s to their score.
-    public int isOnes(List<Dice> dice) {
+    public int isOnes(ArrayList<Dice> dice) {
         int result = 0;
         for (int i = 0; i < NUMBER_OF_DICE; i++) {
             if (dice.get(i).getValue() == 1) {
@@ -25,7 +25,7 @@ public class logic {
     }
 
     //if the user has any 2's in the roll, they can add the total of the 2’s to their score.
-    public int isTwos(List<Dice> dice) {
+    public int isTwos(ArrayList<Dice> dice) {
         int result = 0;
         for (int i = 0; i < NUMBER_OF_DICE; i++) {
             if (dice.get(i).getValue() == 2) {
@@ -36,7 +36,7 @@ public class logic {
     }
 
     //if the user has any 3's in the roll, they can add the total of the 3’s to their score.
-    public int isThrees(List<Dice> dice) {
+    public int isThrees(ArrayList<Dice> dice) {
         int result = 0;
         for (int i = 0; i < NUMBER_OF_DICE; i++) {
             if (dice.get(i).getValue() == 3) {
@@ -47,7 +47,7 @@ public class logic {
     }
 
     //if the user has any 4's in the roll, they can add the total of the 4’s to their score.
-    public int isFours(List<Dice> dice) {
+    public int isFours(ArrayList<Dice> dice) {
         int result = 0;
         for (int i = 0; i < NUMBER_OF_DICE; i++) {
             if (dice.get(i).getValue() == 4) {
@@ -58,7 +58,7 @@ public class logic {
     }
 
     //if the user has any 5's in the roll, they can add the total of the 5’s to their score.
-    public int isFives(List<Dice> dice) {
+    public int isFives(ArrayList<Dice> dice) {
         int result = 0;
         for (int i = 0; i < NUMBER_OF_DICE; i++) {
             if (dice.get(i).getValue() == 5) {
@@ -69,7 +69,7 @@ public class logic {
     }
 
     //if the user has any 6's in the roll, they can add the total of the 6’s to their score.
-    public int isSixes(List<Dice> dice) {
+    public int isSixes(ArrayList<Dice> dice) {
         int result = 0;
         for (int i = 0; i < NUMBER_OF_DICE; i++) {
             if (dice.get(i).getValue() == 6) {
@@ -91,7 +91,7 @@ public class logic {
 
     //lower section
     // if the user has a 3 of a kind, return the total of all 5 dice.
-    public int isThreeOfAKind(List<Dice> dice) {
+    public int isThreeOfAKind(ArrayList<Dice> dice) {
         List<Dice> copy = new ArrayList<Dice>(dice);
         copy.sort(Dice::compareTo);
         int result = 0;
@@ -106,7 +106,7 @@ public class logic {
     }
 
     // if the user has a 4 of a kind, return the total of all 5 dice.
-    public int isFourOfAKind(List<Dice> dice) {
+    public int isFourOfAKind(ArrayList<Dice> dice) {
         List<Dice> copy = new ArrayList<Dice>(dice);
         copy.sort(Dice::compareTo);
         int result = 0;
@@ -120,7 +120,7 @@ public class logic {
     }
 
     // if the user has a full house, return 25.
-    public int isFullHouse(List<Dice> dice) {
+    public int isFullHouse(ArrayList<Dice> dice) {
         List<Dice> copy = new ArrayList<Dice>(dice);
         copy.sort(Dice::compareTo);
         int result = 0;
@@ -137,7 +137,7 @@ public class logic {
     }
 
     // if the user has a small straight, return 30.
-    public int isSmallStraight(List<Dice> dice) {
+    public int isSmallStraight(ArrayList<Dice> dice) {
         List<Dice> copy = new ArrayList<Dice>(dice);
         copy.sort(Dice::compareTo);
         int result = 0;
@@ -154,7 +154,7 @@ public class logic {
     }
 
     // if the user has a large straight, return 40.
-    public int isLargeStraight(List<Dice> dice) {
+    public int isLargeStraight(ArrayList<Dice> dice) {
         List<Dice> copy = new ArrayList<Dice>(dice);
         copy.sort(Dice::compareTo);
         int result = 0;
@@ -168,7 +168,7 @@ public class logic {
     }
 
     // if the user has a yahtzee, return 50.
-    public int isYahtzee(List<Dice> dice) {
+    public int isYahtzee(ArrayList<Dice> dice) {
         List<Dice> copy = new ArrayList<Dice>(dice);
         copy.sort(Dice::compareTo);
         int result = 0;
@@ -180,7 +180,7 @@ public class logic {
     }
 
     // if the user has a chance, return the total of all 5 dice.
-    public int isChance(List<Dice> dice) {
+    public int isChance(ArrayList<Dice> dice) {
         List<Dice> copy = new ArrayList<Dice>(dice);
         copy.sort(Dice::compareTo);
         int result = 0;
