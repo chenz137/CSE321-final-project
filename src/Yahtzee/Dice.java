@@ -13,6 +13,8 @@ public class Dice implements Comparable<Dice>{
 	private JButton button;
 	private JLabel head;
 
+	static int count = 0;
+
 	public static Dice dice1 = new Dice();
 	public static Dice dice2 = new Dice();
 	public static Dice dice3 = new Dice();
@@ -64,8 +66,7 @@ public class Dice implements Comparable<Dice>{
 		if(!hold) num = (int) ((Math.random() * 6) + 1);
 		button.setText(num + "");
 		diceValues();
-		scoreCard.scoreCheck();
-		boolean end = scoreCard.Round();
+		ScoreCard.Instance.scoreCheck();
 	}
 	
 	public String toString() {
