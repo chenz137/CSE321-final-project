@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class scoreCard {
-    int isOnes = 0;
+    static int isOnes = 0;
     int isTwos = 0;
     int isThrees = 0;
     int isFours = 0;
@@ -18,20 +18,13 @@ public class scoreCard {
     int isLargeStraight = 0;
     int isYahtzee = 0;
     int isChance = 0;
-    int isBonus = 0;
     int isUpperTotal = 0;
     int isLowerTotal = 0;
     int isGrandTotal = 0;
-    static int round = 0;
-
-    public static Dice dice1 = new Dice();
-    public static Dice dice2 = new Dice();
-    public static Dice dice3 = new Dice();
-    public static Dice dice4 = new Dice();
-    public static Dice dice5 = new Dice();
+    static int round = 1;
 
     // map to store the scorecard
-    Map <String, Integer> scoreCard = new HashMap<String, Integer>();
+    static Map <String, Integer> scoreCard = new HashMap<String, Integer>();
     public void scoreMap() {
         scoreCard.put("Ones", isOnes);
         scoreCard.put("Twos", isTwos);
@@ -49,36 +42,30 @@ public class scoreCard {
         scoreCard.put("Grand Total", getIsGrandTotal());
     }
 
-    public ArrayList<Dice> diceValues() {
-        ArrayList <Dice> numList = new ArrayList<> ();
-        numList.add(dice1);
-        numList.add(dice2);
-        numList.add(dice3);
-        numList.add(dice4);
-        numList.add(dice5);
-        return numList;
-    }
 
-    public void scorecheck(){
-        ArrayList <Dice> numList = diceValues();
-        int isOnes = logic.isOnes(numList);
-        int isTwos = logic.isTwos(numList);
-        int isThrees = logic.isThrees(numList);
-        int isFours = logic.isFours(numList);
-        int isFives = logic.isFives(numList);
-        int isSixes = logic.isSixes(numList);
-        int isThreeOfAKind = logic.isThreeOfAKind(numList);
-        int isFourOfAKind = logic.isFourOfAKind(numList);
-        int isFullHouse = logic.isFullHouse(numList);
-        int isSmallStraight = logic.isSmallStraight(numList);
-        int isLargeStraight = logic.isLargeStraight(numList);
-        int isYahtzee = logic.isYahtzee(numList);
-        int isChance = logic.isChance(numList);
+    public static void scoreCheck(){
+        ArrayList <Dice> numList = Dice.diceValues();
+        int Ones = logic.isOnes(numList);
+        if (isOnes == 0) {
+            scoreCard.put("Ones", Ones);
+        }
+        int Twos = logic.isTwos(numList);
+        int Threes = logic.isThrees(numList);
+        int Fours = logic.isFours(numList);
+        int Fives = logic.isFives(numList);
+        int Sixes = logic.isSixes(numList);
+        int ThreeOfAKind = logic.isThreeOfAKind(numList);
+        int FourOfAKind = logic.isFourOfAKind(numList);
+        int FullHouse = logic.isFullHouse(numList);
+        int SmallStraight = logic.isSmallStraight(numList);
+        int LargeStraight = logic.isLargeStraight(numList);
+        int Yahtzee = logic.isYahtzee(numList);
+        int Chance = logic.isChance(numList);
         int YahtzeeBonus = logic.isYahtzeeBonus();
     }
 
     // The game lasts 13 rounds of rolling and scoring.
-    public static boolean gameEnd() {
+    public static boolean Round() {
         if (round < 13) {
             round++;
             return false;
@@ -105,7 +92,7 @@ public class scoreCard {
         return isGrandTotal;
     }
 
-    public String gameRound(){
+    public String getGameRound(){
         return "Round " + round;
     }
 

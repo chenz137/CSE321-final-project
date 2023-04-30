@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Dice implements Comparable<Dice>{
 	
@@ -11,6 +12,12 @@ public class Dice implements Comparable<Dice>{
 	public JPanel dice;
 	private JButton button;
 	private JLabel head;
+
+	public static Dice dice1 = new Dice();
+	public static Dice dice2 = new Dice();
+	public static Dice dice3 = new Dice();
+	public static Dice dice4 = new Dice();
+	public static Dice dice5 = new Dice();
 	
 	
 	public Dice() {
@@ -53,10 +60,12 @@ public class Dice implements Comparable<Dice>{
 	
 	public void unHold() {hold = false;}
 	
-	public int roll() {
+	public void roll() {
 		if(!hold) num = (int) ((Math.random() * 6) + 1);
 		button.setText(num + "");
-		return num;
+		diceValues();
+		scoreCard.scoreCheck();
+		boolean end = scoreCard.Round();
 	}
 	
 	public String toString() {
@@ -65,6 +74,16 @@ public class Dice implements Comparable<Dice>{
 
 	public int getValue() {
 		return num;
+	}
+
+	public static ArrayList<Dice> diceValues() {
+		ArrayList <Dice> numList = new ArrayList<> ();
+		numList.add(dice1);
+		numList.add(dice2);
+		numList.add(dice3);
+		numList.add(dice4);
+		numList.add(dice5);
+		return numList;
 	}
 
 	@Override

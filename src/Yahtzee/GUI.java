@@ -28,20 +28,19 @@ public class GUI {
 
 
 		//Create Dice
-
-		Yahtzee.scoreCard.dice1.dice.setLocation(255,700);
-		Yahtzee.scoreCard.dice2.dice.setLocation(355,700);
-		Yahtzee.scoreCard.dice3.dice.setLocation(455,700);
-		Yahtzee.scoreCard.dice4.dice.setLocation(555,700);
-		Yahtzee.scoreCard.dice5.dice.setLocation(655,700);
+		Yahtzee.Dice.dice1.dice.setLocation(255,700);
+		Yahtzee.Dice.dice2.dice.setLocation(355,700);
+		Yahtzee.Dice.dice3.dice.setLocation(455,700);
+		Yahtzee.Dice.dice4.dice.setLocation(555,700);
+		Yahtzee.Dice.dice5.dice.setLocation(655,700);
 
 		JFrame gui = new JFrame("Yahtzee");
 		gui.setBackground(Color.LIGHT_GRAY);
 		
 		JLabel yahtzee = new JLabel("<html><p style='font-size:20px'> Yahtzee </p></html>");
 		yahtzee.setBounds(450,50,100,40);
-		
-		JLabel round = new JLabel("<html><p style='font-size:20px'>" + game.gameRound() + "</p></html>");
+
+		JLabel round = new JLabel("<html><p style='font-size:20px'>" + game.getGameRound() + "</p></html>");
 		round.setBounds(450,550,200,40);
 
 		//Roll Button
@@ -51,20 +50,20 @@ public class GUI {
 		roll.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Yahtzee.scoreCard.dice1.roll();
-				Yahtzee.scoreCard.dice2.roll();
-				Yahtzee.scoreCard.dice3.roll();
-				Yahtzee.scoreCard.dice4.roll();
-				Yahtzee.scoreCard.dice5.roll();
+				Yahtzee.Dice.dice1.roll();
+				Yahtzee.Dice.dice2.roll();
+				Yahtzee.Dice.dice3.roll();
+				Yahtzee.Dice.dice4.roll();
+				Yahtzee.Dice.dice5.roll();
 			}
 		});
 
 		//Add Elements
-		gui.add(Yahtzee.scoreCard.dice1.dice);
-		gui.add(Yahtzee.scoreCard.dice2.dice);
-		gui.add(Yahtzee.scoreCard.dice3.dice);
-		gui.add(Yahtzee.scoreCard.dice4.dice);
-		gui.add(Yahtzee.scoreCard.dice5.dice);
+		gui.add(Yahtzee.Dice.dice1.dice);
+		gui.add(Yahtzee.Dice.dice2.dice);
+		gui.add(Yahtzee.Dice.dice3.dice);
+		gui.add(Yahtzee.Dice.dice4.dice);
+		gui.add(Yahtzee.Dice.dice5.dice);
 		gui.add(roll);
 
 		//Make the Background
