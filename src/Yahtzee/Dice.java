@@ -1,4 +1,4 @@
-package Yahtzee;
+
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -15,11 +15,7 @@ public class Dice implements Comparable<Dice>{
 
 	static int count = 0;
 
-	public static Dice dice1 = new Dice();
-	public static Dice dice2 = new Dice();
-	public static Dice dice3 = new Dice();
-	public static Dice dice4 = new Dice();
-	public static Dice dice5 = new Dice();
+	
 	
 	
 	public Dice() {
@@ -65,8 +61,6 @@ public class Dice implements Comparable<Dice>{
 	public void roll() {
 		if(!hold) num = (int) ((Math.random() * 6) + 1);
 		button.setText(num + "");
-		diceValues();
-		ScoreCard.Instance.scoreCheck();
 	}
 	
 	public String toString() {
@@ -75,16 +69,6 @@ public class Dice implements Comparable<Dice>{
 
 	public int getValue() {
 		return num;
-	}
-
-	public static ArrayList<Dice> diceValues() {
-		ArrayList <Dice> numList = new ArrayList<> ();
-		numList.add(dice1);
-		numList.add(dice2);
-		numList.add(dice3);
-		numList.add(dice4);
-		numList.add(dice5);
-		return numList;
 	}
 
 	@Override

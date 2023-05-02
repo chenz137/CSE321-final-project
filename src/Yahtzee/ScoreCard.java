@@ -1,57 +1,55 @@
-package Yahtzee;
 
 import java.util.ArrayList;
 
 public class ScoreCard {
     public static ScoreCard Instance = new ScoreCard();
-    int isOnes = 0;
-    int isTwos = 0;
-    int isThrees = 0;
-    int isFours = 0;
-    int isFives = 0;
-    int isSixes = 0;
-    int isThreeOfAKind = 0;
-    int isFourOfAKind = 0;
-    int isFullHouse = 0;
-    int isSmallStraight = 0;
-    int isLargeStraight = 0;
-    int isYahtzee = 0;
-    int isChance = 0;
-    int YahtzeeBonus = 0;
-    int isUpperTotal = 0;
-    int isLowerTotal = 0;
-    int isGrandTotal = 0;
-    int round = 1;
+    private int isOnes = 0;
+    private int isTwos = 0;
+    private int isThrees = 0;
+    private int isFours = 0;
+    private int isFives = 0;
+    private int isSixes = 0;
+    private int isThreeOfAKind = 0;
+    private int isFourOfAKind = 0;
+    private int isFullHouse = 0;
+    private int isSmallStraight = 0;
+    private int isLargeStraight = 0;
+    private int isYahtzee = 0;
+    private int isChance = 0;
+    private int YahtzeeBonus = 0;
+    private int isUpperTotal = 0;
+    private int isLowerTotal = 0;
+    private int isGrandTotal = 0;
+    private int round = 1;
 
     boolean gameOver = false;
 
-    public static void scoreCheck(){
-        ArrayList <Dice> numList = Dice.diceValues();
-        isOnes = logic.isOnes(numList);
-        isTwos = logic.isTwos(numList);
-        isThrees = logic.isThrees(numList);
-        isFours = logic.isFours(numList);
-        isFives = logic.isFives(numList);
-        isSixes = logic.isSixes(numList);
-        isThreeOfAKind = logic.isThreeOfAKind(numList);
-        isFourOfAKind = logic.isFourOfAKind(numList);
-        isFullHouse = logic.isFullHouse(numList);
-        isSmallStraight = logic.isSmallStraight(numList);
-        isLargeStraight = logic.isLargeStraight(numList);
-        isYahtzee = logic.isYahtzee(numList);
-        isChance = logic.isChance(numList);
-        YahtzeeBonus = logic.isYahtzeeBonus();
+    public void scoreCheck(ArrayList <Dice> numList){
+        isOnes += logic.isOnes(numList);
+        isTwos += logic.isTwos(numList);
+        isThrees += logic.isThrees(numList);
+        isFours += logic.isFours(numList);
+        isFives += logic.isFives(numList);
+        isSixes += logic.isSixes(numList);
+        isThreeOfAKind += logic.isThreeOfAKind(numList);
+        isFourOfAKind += logic.isFourOfAKind(numList);
+        isFullHouse += logic.isFullHouse(numList);
+        isSmallStraight += logic.isSmallStraight(numList);
+        isLargeStraight += logic.isLargeStraight(numList);
+        isYahtzee += logic.isYahtzee(numList);
+        isChance += logic.isChance(numList);
+        YahtzeeBonus += logic.isYahtzeeBonus();
     }
 
     // The game lasts 13 rounds of rolling and scoring.
-    public static boolean Round() {
+    public boolean Round() {
         if (round < 13) {
             round++;
         } else {
             round = 0;
             gameOver = true;
         }
-        // TODO: Update GUI
+        return gameOver;
     }
 
     public int getIsUpperTotal() {
@@ -102,5 +100,3 @@ public class ScoreCard {
         return ret;
     }
 }
-
-
