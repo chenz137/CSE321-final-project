@@ -1,5 +1,7 @@
+package Yahtzee;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class ScoreCard {
     public static ScoreCard Instance = new ScoreCard();
@@ -18,85 +20,108 @@ public class ScoreCard {
     private int isChance = 0;
     private int YahtzeeBonus = 0;
     private int isUpperTotal = 0;
-    private int isLowerTotal = 0;
-    private int isGrandTotal = 0;
-    private int round = 1;
-
+    public int round = 1;
+    public int count = 0;
     boolean gameOver = false;
 
     public void scoreCheck(ArrayList <Dice> numList){
-        isOnes += logic.isOnes(numList);
-        isTwos += logic.isTwos(numList);
-        isThrees += logic.isThrees(numList);
-        isFours += logic.isFours(numList);
-        isFives += logic.isFives(numList);
-        isSixes += logic.isSixes(numList);
-        isThreeOfAKind += logic.isThreeOfAKind(numList);
-        isFourOfAKind += logic.isFourOfAKind(numList);
-        isFullHouse += logic.isFullHouse(numList);
-        isSmallStraight += logic.isSmallStraight(numList);
-        isLargeStraight += logic.isLargeStraight(numList);
-        isYahtzee += logic.isYahtzee(numList);
-        isChance += logic.isChance(numList);
-        YahtzeeBonus += logic.isYahtzeeBonus();
+        isOnes = logic.isOnes(numList);
+        isTwos = logic.isTwos(numList);
+        isThrees = logic.isThrees(numList);
+        isFours = logic.isFours(numList);
+        isFives = logic.isFives(numList);
+        isSixes = logic.isSixes(numList);
+        isThreeOfAKind = logic.isThreeOfAKind(numList);
+        isFourOfAKind = logic.isFourOfAKind(numList);
+        isFullHouse = logic.isFullHouse(numList);
+        isSmallStraight = logic.isSmallStraight(numList);
+        isLargeStraight = logic.isLargeStraight(numList);
+        isYahtzee = logic.isYahtzee(numList);
+        isChance = logic.isChance(numList);
+        YahtzeeBonus = logic.isYahtzeeBonus();
     }
 
     // The game lasts 13 rounds of rolling and scoring.
     public boolean Round() {
-        if (round < 13) {
-            round++;
-        } else {
-            round = 0;
-            gameOver = true;
-        }
+        count++;
+        if (round <= 13) {
+            if (count % 3 == 0) {
+                round++;
+            }
+        }else {
+                round = 1;
+                gameOver = true;
+            }
         return gameOver;
     }
 
-    public int getIsUpperTotal() {
-        isUpperTotal = isOnes + isTwos + isThrees + isFours + isFives + isSixes;
+    public int getIsUpperTotal(Map<String, Integer> finalscore) {
+        int UpperTotal = finalscore.get("Ones") + finalscore.get("Twos") + finalscore.get("Threes") + finalscore.get("Fours") + finalscore.get("Fives") + finalscore.get("Sixes");
         int bonus = logic.isBonus(isUpperTotal);
-        return isUpperTotal + bonus;
+        return UpperTotal + bonus;
     }
 
-    public int getIsLowerTotal() {
-        isLowerTotal = isThreeOfAKind + isFourOfAKind + isFullHouse + isSmallStraight + isLargeStraight + isYahtzee + isChance;
-        return isLowerTotal;
+    public int getIsLowerTotal(Map<String, Integer> finalscore) {
+        return finalscore.get("Three of a Kind") + finalscore.get("Four of a Kind") + finalscore.get("Full House") + finalscore.get("Small Straight") + finalscore.get("Large Straight") + finalscore.get("Yahtzee") + finalscore.get("Chance");
     }
 
     public int getIsGrandTotal() {
-        isGrandTotal = getIsUpperTotal() + getIsLowerTotal();
-        return isGrandTotal;
+        return getIsUpperTotal(GUI.scoreMap) + getIsLowerTotal(GUI.scoreMap) + YahtzeeBonus;
     }
 
     public String getGameRound(){
         return "Round " + round;
     }
 
-    // The player may re-roll any number of the 5 dice an additional 2 times per round, totaling to 3 dice rolls per round.
-    // That is, you roll the dice and then choose to reroll a subset of dice a second time, then again for the third time.
-    // When rerolling the dice in a round, you may reroll any subset of dice or all of the dice per reroll.
-    // At the end of the 13th round, all the boxes which can be scored in must be filled. That is, all unscored boxes will be defaulted with a 0.
+    public int getIsOnes() {
+        return isOnes;
+    }
 
+    public int getIsTwos() {
+        return isTwos;
+    }
 
+    public int getIsThrees() {
+        return isThrees;
+    }
 
-    // The player must score once in each category. That is, a player may not choose to skip scoring a category even if they can score 0 in all categories.
-    // The player may score in any category at any time in the game, even if the player has not rolled the dice yet.
+    public int getIsFours() {
+        return isFours;
+    }
 
+    public int getIsFives() {
+        return isFives;
+    }
 
-    public String toString() {
-        String ret = "Ones=" + isOnes + "%n";
-        ret += "Twos=" + isTwos + "%n";
-        ret += "Threes=" + isThrees + "%n";
-        ret += "Fours=" + isFours + "%n";
-        ret += "Fives=" + isFives + "%n";
-        ret += "Sixes=" + isSixes + "%n";
-        ret += "Three Of A Kind=" + isThreeOfAKind + "%n";
-        ret += "Four Of A Kind=" + isFourOfAKind + "%n";
-        ret += "Full House=" + isFullHouse + "%n";
-        ret += "Small Straight=" + isSmallStraight + "%n";
-        ret += "Large Straight=" + isLargeStraight + "%n";
-        ret += "Yahtzee=" + isYahtzee + "%n";
-        ret += "Chance=" + isChance + "%n";
-        return ret;
+    public int getIsSixes() {
+        return isSixes;
+    }
+
+    public int getIsThreeOfAKind() {
+        return isThreeOfAKind;
+    }
+
+    public int getIsFourOfAKind() {
+        return isFourOfAKind;
+    }
+
+    public int getIsSmallStraight() {
+        return isSmallStraight;
+    }
+
+    public int getIsLargeStraight() {
+        return isLargeStraight;
+    }
+
+    public int getIsFullHouse() {
+        return isFullHouse;
+    }
+
+    public int getIsChance() {
+        return isChance;
+    }
+
+    public int getIsYahtzee() {
+        return isYahtzee;
     }
 }

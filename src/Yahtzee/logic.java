@@ -1,3 +1,5 @@
+package Yahtzee;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -174,7 +176,6 @@ public class logic {
         if (copy.get(FIRST).getValue() == copy.get(FIFTH).getValue()) {
             result = 50;
         }
-        isYahtzeeBonus = true;
         return result;
     }
 
