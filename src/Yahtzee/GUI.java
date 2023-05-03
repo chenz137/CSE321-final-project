@@ -40,16 +40,19 @@ public class GUI {
 
 	public static void startgame() {
 		JFrame frame = new JFrame("Yahtzee");
-		JLabel label = new JLabel("Welcome to Yahtzee");
-		frame.add(label);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(1000, 600);
-		frame.setLayout(null);
 		frame.setVisible(true);
 		frame.getContentPane().setBackground(Color.WHITE);
 
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 1000, 600);
+		panel.setLayout(null);
+		JLabel label = new JLabel("<html><p style='font-size:30px'> " + "Welcome to Yahtzee" + "</p></html>");
+		label.setBounds(300, 100, 600, 100);
+
 		JButton stratGame = new JButton();
-		stratGame.setBounds(400, 200, 200, 50);
+		stratGame.setBounds(400, 300, 200, 50);
 		stratGame.setText("Start Game");
 		stratGame.addActionListener(new ActionListener() {
 			@Override
@@ -60,7 +63,9 @@ public class GUI {
 			}
 		});
 
-		frame.add(stratGame);
+		panel.add(label);
+		panel.add(stratGame);
+		frame.add(panel);
 	}
 
 	public static void makeGameBoard() {
