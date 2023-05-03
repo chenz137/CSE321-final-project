@@ -1,9 +1,9 @@
+package Yahtzee;
 
 import javax.swing.*;
-import java.awt.Color;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class Dice implements Comparable<Dice>{
 	
@@ -13,11 +13,6 @@ public class Dice implements Comparable<Dice>{
 	private JButton button;
 	private JLabel head;
 
-	static int count = 0;
-
-	
-	
-	
 	public Dice() {
 		num = (int) ((Math.random() * 6) + 1);
 		hold = false;
@@ -31,6 +26,7 @@ public class Dice implements Comparable<Dice>{
 		dice.setLayout(null);
 		dice.setSize(100,150);
 		button = new JButton(num + "");
+		button.setFocusPainted(false);
 		button.setBounds(0,15,100,100);
 		//button.setBorderPainted(false);
 		head = new JLabel(" ");
@@ -40,7 +36,6 @@ public class Dice implements Comparable<Dice>{
 			public void actionPerformed(ActionEvent e) {
 				if (hold) {
 					unHold();
-					head.setText(" ");
 				}
 				else {
 					hold();
@@ -54,10 +49,15 @@ public class Dice implements Comparable<Dice>{
 		dice.add(button);
 	}
 	
-	public void hold() {hold = true;}
+	public void hold() {
+		hold = true;
+	}
 	
-	public void unHold() {hold = false;}
-	
+	public void unHold() {
+		hold = false;
+		head.setText(" ");
+	}
+
 	public void roll() {
 		if(!hold) num = (int) ((Math.random() * 6) + 1);
 		button.setText(num + "");
