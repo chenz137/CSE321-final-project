@@ -474,6 +474,7 @@ public class GUI {
 					newGame.setBounds(150, 400, 300, 100);
 					newGame.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
+							ScoreCard.Instance.round = 1;
 							makeGameBoard();
 						}
 					});
