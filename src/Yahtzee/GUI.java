@@ -60,6 +60,7 @@ public class GUI {
 				frame.getContentPane().removeAll();
 				frame.repaint();
 				makeGameBoard();
+				frame.setVisible(false);
 			}
 		});
 
