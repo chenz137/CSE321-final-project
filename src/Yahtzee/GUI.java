@@ -357,7 +357,7 @@ public class GUI {
 
 		//Roll Button
 		JButton roll = new JButton("Roll!");
-		roll.setBounds(450,350,110,40);
+		roll.setBounds(430,350,150,40);
 		roll.setFocusPainted(false);
 		roll.setBackground(Color.CYAN);
 		roll.addActionListener(new ActionListener() {
@@ -383,10 +383,12 @@ public class GUI {
 					dice3.unHold();
 					dice4.unHold();
 					dice5.unHold();
+					roll.setText("Start Next Round!");
 					notice = 1;
 				}
 				else {
 					noticeLabel.setText("");
+					roll.setText("Roll!");
 					notice++;
 				}
 
@@ -471,12 +473,14 @@ public class GUI {
 					over.setBounds(10, 200, 800, 300);
 
 
-					JButton newGame = new JButton("strat new game");
+					JButton newGame = new JButton("Start New Game");
 					newGame.setBounds(150, 400, 300, 100);
+					gui.setVisible(false);
 					newGame.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
 							ScoreCard.Instance.round = 1;
 							makeGameBoard();
+							gameOver.setVisible(false);
 						}
 					});
 
