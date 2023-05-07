@@ -16,8 +16,6 @@ public class Dice implements Comparable<Dice>{
 	public Dice() {
 		num = (int) ((Math.random() * 6) + 1);
 		hold = false;
-		
-		makeGraphic();
 	}
 	
 	public void makeGraphic() {	
@@ -41,9 +39,7 @@ public class Dice implements Comparable<Dice>{
 					hold();
 					head.setText("Held");
 				}
-				
 			}
-			
 		});
 		dice.add(head);
 		dice.add(button);
@@ -71,11 +67,15 @@ public class Dice implements Comparable<Dice>{
 		return num;
 	}
 
+	//used for testing
+	public void setValue(int num) {
+		this.num = num;
+	}
+
 	@Override
 	public int compareTo(Dice o) {
 		return Integer.compare(this.getValue(), o.getValue());
 	}
 
-	
 }
 

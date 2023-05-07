@@ -36,6 +36,11 @@ public class GUI {
 		scoreMap.put("Chance", 0);
 
 		startgame();
+		dice1.makeGraphic();
+		dice2.makeGraphic();
+		dice3.makeGraphic();
+		dice4.makeGraphic();
+		dice5.makeGraphic();
 	}
 
 	public static void startgame() {
