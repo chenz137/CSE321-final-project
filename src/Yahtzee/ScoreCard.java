@@ -20,8 +20,8 @@ public class ScoreCard {
     private int isChance = 0;
     private int YahtzeeBonus = 0;
     private int isUpperTotal = 0;
-    public int round = 1;
-    public int count = 0;
+    public static int round = 0;
+    public static int count = -1;
     boolean gameOver = false;
 
     public void scoreCheck(ArrayList <Dice> numList){
@@ -47,9 +47,20 @@ public class ScoreCard {
         if (round <= 13) {
             if (count % 3 == 0) {
                 round++;
+                GUI.dice1.unHold();
+                GUI.dice2.unHold();
+                GUI.dice3.unHold();
+                GUI.dice4.unHold();
+                GUI.dice5.unHold();
+                GUI.dice1.roll();
+                GUI.dice2.roll();
+                GUI.dice3.roll();
+                GUI.dice4.roll();
+                GUI.dice5.roll();
+                GUI.scoreLock = false;
             }
         }else {
-                round = 1;
+                round = 0;
                 gameOver = true;
             }
         return gameOver;

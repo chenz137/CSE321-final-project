@@ -14,7 +14,7 @@ public class Dice implements Comparable<Dice>{
 	private JLabel head;
 
 	public Dice() {
-		num = (int) ((Math.random() * 6) + 1);
+		num = 0;
 		hold = false;
 	}
 	

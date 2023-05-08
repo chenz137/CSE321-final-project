@@ -15,9 +15,9 @@ public class GUI {
 	public static Dice dice3 = new Dice();
 	public static Dice dice4 = new Dice();
 	public static Dice dice5 = new Dice();
-	public static int notice = -1;
+	public static int notice = 1;
 	public static Map<String, Integer> scoreMap = new HashMap<>();
-
+	static boolean scoreLock = false;
 	public static JLabel noticeLabel = new JLabel("");
 
 	public static void main(String args[]) {
@@ -34,8 +34,40 @@ public class GUI {
 		scoreMap.put("Large Straight", 0);
 		scoreMap.put("Yahtzee", 0);
 		scoreMap.put("Chance", 0);
+		startgame();
+
+		dice1.makeGraphic();
+		dice2.makeGraphic();
+		dice3.makeGraphic();
+		dice4.makeGraphic();
+		dice5.makeGraphic();
+	}
+
+	public static void restart(){
+		ScoreCard.count = -1;
+		ScoreCard.round = 0;
+		notice = 1;
+		scoreMap.put("Ones", 0);
+		scoreMap.put("Twos", 0);
+		scoreMap.put("Threes", 0);
+		scoreMap.put("Fours", 0);
+		scoreMap.put("Fives", 0);
+		scoreMap.put("Sixes", 0);
+		scoreMap.put("Three of a Kind", 0);
+		scoreMap.put("Four of a Kind", 0);
+		scoreMap.put("Full House", 0);
+		scoreMap.put("Small Straight", 0);
+		scoreMap.put("Large Straight", 0);
+		scoreMap.put("Yahtzee", 0);
+		scoreMap.put("Chance", 0);
+		dice1 = new Dice();
+		dice2 = new Dice();
+		dice3 = new Dice();
+		dice4 = new Dice();
+		dice5 = new Dice();
 
 		startgame();
+
 		dice1.makeGraphic();
 		dice2.makeGraphic();
 		dice3.makeGraphic();
@@ -66,6 +98,7 @@ public class GUI {
 				frame.repaint();
 				makeGameBoard();
 				frame.setVisible(false);
+
 			}
 		});
 
@@ -82,6 +115,7 @@ public class GUI {
 		// score board
 		ArrayList <Dice> numList = new ArrayList<Dice>();
 
+
 		//scoreCard button
 		JButton isOnesButton = new JButton();
 		isOnesButton.setBounds(50,450,150,50);
@@ -93,13 +127,16 @@ public class GUI {
 		isOnesButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				isOnesButton.setText("Ones = " + ScoreCard.Instance.getIsOnes());
-				isOnesButton.setBackground(Color.LIGHT_GRAY);
-				isOnesButton.setEnabled(false);
-				isOnesButton.setOpaque(true);
-				isOnesButton.setContentAreaFilled(true);
-				isOnesButton.setBorderPainted(true);
-				scoreMap.put("Ones", ScoreCard.Instance.getIsOnes());
+				if (!scoreLock) {
+					isOnesButton.setText("Ones = " + ScoreCard.Instance.getIsOnes());
+					isOnesButton.setBackground(Color.LIGHT_GRAY);
+					isOnesButton.setEnabled(false);
+					isOnesButton.setOpaque(true);
+					isOnesButton.setContentAreaFilled(true);
+					isOnesButton.setBorderPainted(true);
+					scoreMap.put("Ones", ScoreCard.Instance.getIsOnes());
+					scoreLock = true;
+				}
 			}
 		});
 
@@ -113,13 +150,16 @@ public class GUI {
 		isTwosButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				isTwosButton.setText("Twos = " + ScoreCard.Instance.getIsTwos());
-				isTwosButton.setBackground(Color.LIGHT_GRAY);
-				isTwosButton.setEnabled(false);
-				isTwosButton.setOpaque(true);
-				isTwosButton.setContentAreaFilled(true);
-				isTwosButton.setBorderPainted(true);
-				scoreMap.put("Twos", ScoreCard.Instance.getIsTwos());
+				if (!scoreLock) {
+					isTwosButton.setText("Twos = " + ScoreCard.Instance.getIsTwos());
+					isTwosButton.setBackground(Color.LIGHT_GRAY);
+					isTwosButton.setEnabled(false);
+					isTwosButton.setOpaque(true);
+					isTwosButton.setContentAreaFilled(true);
+					isTwosButton.setBorderPainted(true);
+					scoreMap.put("Twos", ScoreCard.Instance.getIsTwos());
+					scoreLock = true;
+				}
 			}
 		});
 
@@ -133,13 +173,16 @@ public class GUI {
 		isThreesButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				isThreesButton.setText("Threes = " + ScoreCard.Instance.getIsThrees());
-				isThreesButton.setBackground(Color.LIGHT_GRAY);
-				isThreesButton.setEnabled(false);
-				isThreesButton.setOpaque(true);
-				isThreesButton.setContentAreaFilled(true);
-				isThreesButton.setBorderPainted(true);
-				scoreMap.put("Threes", ScoreCard.Instance.getIsThrees());
+				if (!scoreLock) {
+					isThreesButton.setText("Threes = " + ScoreCard.Instance.getIsThrees());
+					isThreesButton.setBackground(Color.LIGHT_GRAY);
+					isThreesButton.setEnabled(false);
+					isThreesButton.setOpaque(true);
+					isThreesButton.setContentAreaFilled(true);
+					isThreesButton.setBorderPainted(true);
+					scoreMap.put("Threes", ScoreCard.Instance.getIsThrees());
+					scoreLock = true;
+				}
 			}
 		});
 
@@ -153,13 +196,16 @@ public class GUI {
 		isFoursButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				isFoursButton.setText("Fours = " + ScoreCard.Instance.getIsFours());
-				isFoursButton.setBackground(Color.LIGHT_GRAY);
-				isFoursButton.setEnabled(false);
-				isFoursButton.setOpaque(true);
-				isFoursButton.setContentAreaFilled(true);
-				isFoursButton.setBorderPainted(true);
-				scoreMap.put("Fours", ScoreCard.Instance.getIsFours());
+				if (!scoreLock) {
+					isFoursButton.setText("Fours = " + ScoreCard.Instance.getIsFours());
+					isFoursButton.setBackground(Color.LIGHT_GRAY);
+					isFoursButton.setEnabled(false);
+					isFoursButton.setOpaque(true);
+					isFoursButton.setContentAreaFilled(true);
+					isFoursButton.setBorderPainted(true);
+					scoreMap.put("Fours", ScoreCard.Instance.getIsFours());
+					scoreLock = true;
+				}
 			}
 		});
 
@@ -173,13 +219,16 @@ public class GUI {
 		isFivesButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				isFivesButton.setText("Fives = " + ScoreCard.Instance.getIsFives());
-				isFivesButton.setBackground(Color.LIGHT_GRAY);
-				isFivesButton.setEnabled(false);
-				isFivesButton.setOpaque(true);
-				isFivesButton.setContentAreaFilled(true);
-				isFivesButton.setBorderPainted(true);
-				scoreMap.put("Fives", ScoreCard.Instance.getIsFives());
+				if (!scoreLock) {
+					isFivesButton.setText("Fives = " + ScoreCard.Instance.getIsFives());
+					isFivesButton.setBackground(Color.LIGHT_GRAY);
+					isFivesButton.setEnabled(false);
+					isFivesButton.setOpaque(true);
+					isFivesButton.setContentAreaFilled(true);
+					isFivesButton.setBorderPainted(true);
+					scoreMap.put("Fives", ScoreCard.Instance.getIsFives());
+					scoreLock = true;
+				}
 			}
 		});
 
@@ -193,13 +242,16 @@ public class GUI {
 		isSixesButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				isSixesButton.setText("Sixes = " + ScoreCard.Instance.getIsSixes());
-				isSixesButton.setBackground(Color.LIGHT_GRAY);
-				isSixesButton.setEnabled(false);
-				isSixesButton.setOpaque(true);
-				isSixesButton.setContentAreaFilled(true);
-				isSixesButton.setBorderPainted(true);
-				scoreMap.put("Sixes", ScoreCard.Instance.getIsSixes());
+				if (!scoreLock) {
+					isSixesButton.setText("Sixes = " + ScoreCard.Instance.getIsSixes());
+					isSixesButton.setBackground(Color.LIGHT_GRAY);
+					isSixesButton.setEnabled(false);
+					isSixesButton.setOpaque(true);
+					isSixesButton.setContentAreaFilled(true);
+					isSixesButton.setBorderPainted(true);
+					scoreMap.put("Sixes", ScoreCard.Instance.getIsSixes());
+					scoreLock = true;
+				}
 			}
 		});
 
@@ -213,13 +265,16 @@ public class GUI {
 		isThreeOfAKindButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				isThreeOfAKindButton.setText("Three of a kind = " + ScoreCard.Instance.getIsThreeOfAKind());
-				isThreeOfAKindButton.setBackground(Color.LIGHT_GRAY);
-				isThreeOfAKindButton.setEnabled(false);
-				isThreeOfAKindButton.setOpaque(true);
-				isThreeOfAKindButton.setContentAreaFilled(true);
-				isThreeOfAKindButton.setBorderPainted(true);
-				scoreMap.put("Three of a kind", ScoreCard.Instance.getIsThreeOfAKind());
+				if (!scoreLock) {
+					isThreeOfAKindButton.setText("Three of a kind = " + ScoreCard.Instance.getIsThreeOfAKind());
+					isThreeOfAKindButton.setBackground(Color.LIGHT_GRAY);
+					isThreeOfAKindButton.setEnabled(false);
+					isThreeOfAKindButton.setOpaque(true);
+					isThreeOfAKindButton.setContentAreaFilled(true);
+					isThreeOfAKindButton.setBorderPainted(true);
+					scoreMap.put("Three of a kind", ScoreCard.Instance.getIsThreeOfAKind());
+					scoreLock = true;
+				}
 			}
 		});
 
@@ -233,13 +288,16 @@ public class GUI {
 		isFourOfAKindButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				isFourOfAKindButton.setText("Four of a kind = " + ScoreCard.Instance.getIsFourOfAKind());
-				isFourOfAKindButton.setBackground(Color.LIGHT_GRAY);
-				isFourOfAKindButton.setEnabled(false);
-				isFourOfAKindButton.setOpaque(true);
-				isFourOfAKindButton.setContentAreaFilled(true);
-				isFourOfAKindButton.setBorderPainted(true);
-				scoreMap.put("Four of a kind", ScoreCard.Instance.getIsFourOfAKind());
+				if (!scoreLock) {
+					isFourOfAKindButton.setText("Four of a kind = " + ScoreCard.Instance.getIsFourOfAKind());
+					isFourOfAKindButton.setBackground(Color.LIGHT_GRAY);
+					isFourOfAKindButton.setEnabled(false);
+					isFourOfAKindButton.setOpaque(true);
+					isFourOfAKindButton.setContentAreaFilled(true);
+					isFourOfAKindButton.setBorderPainted(true);
+					scoreMap.put("Four of a kind", ScoreCard.Instance.getIsFourOfAKind());
+					scoreLock = true;
+				}
 			}
 		});
 
@@ -253,13 +311,16 @@ public class GUI {
 		isFullHouseButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				isFullHouseButton.setText("Full House = " + ScoreCard.Instance.getIsFullHouse());
-				isFullHouseButton.setBackground(Color.LIGHT_GRAY);
-				isFullHouseButton.setEnabled(false);
-				isFullHouseButton.setOpaque(true);
-				isFullHouseButton.setContentAreaFilled(true);
-				isFullHouseButton.setBorderPainted(true);
-				scoreMap.put("Full House", ScoreCard.Instance.getIsFullHouse());
+				if (!scoreLock) {
+					isFullHouseButton.setText("Full House = " + ScoreCard.Instance.getIsFullHouse());
+					isFullHouseButton.setBackground(Color.LIGHT_GRAY);
+					isFullHouseButton.setEnabled(false);
+					isFullHouseButton.setOpaque(true);
+					isFullHouseButton.setContentAreaFilled(true);
+					isFullHouseButton.setBorderPainted(true);
+					scoreMap.put("Full House", ScoreCard.Instance.getIsFullHouse());
+					scoreLock = true;
+				}
 			}
 		});
 
@@ -273,13 +334,16 @@ public class GUI {
 		isSmallStraightButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				isSmallStraightButton.setText("Small Straight = " + ScoreCard.Instance.getIsSmallStraight());
-				isSmallStraightButton.setBackground(Color.LIGHT_GRAY);
-				isSmallStraightButton.setEnabled(false);
-				isSmallStraightButton.setOpaque(true);
-				isSmallStraightButton.setContentAreaFilled(true);
-				isSmallStraightButton.setBorderPainted(true);
-				scoreMap.put("Small Straight", ScoreCard.Instance.getIsSmallStraight());
+				if (!scoreLock) {
+					isSmallStraightButton.setText("Small Straight = " + ScoreCard.Instance.getIsSmallStraight());
+					isSmallStraightButton.setBackground(Color.LIGHT_GRAY);
+					isSmallStraightButton.setEnabled(false);
+					isSmallStraightButton.setOpaque(true);
+					isSmallStraightButton.setContentAreaFilled(true);
+					isSmallStraightButton.setBorderPainted(true);
+					scoreMap.put("Small Straight", ScoreCard.Instance.getIsSmallStraight());
+					scoreLock = true;
+				}
 			}
 		});
 
@@ -293,13 +357,16 @@ public class GUI {
 		isLargeStraightButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				isLargeStraightButton.setText("Large Straight = " + ScoreCard.Instance.getIsLargeStraight());
-				isLargeStraightButton.setBackground(Color.LIGHT_GRAY);
-				isLargeStraightButton.setEnabled(false);
-				isLargeStraightButton.setOpaque(true);
-				isLargeStraightButton.setContentAreaFilled(true);
-				isLargeStraightButton.setBorderPainted(true);
-				scoreMap.put("Large Straight", ScoreCard.Instance.getIsLargeStraight());
+				if (!scoreLock) {
+					isLargeStraightButton.setText("Large Straight = " + ScoreCard.Instance.getIsLargeStraight());
+					isLargeStraightButton.setBackground(Color.LIGHT_GRAY);
+					isLargeStraightButton.setEnabled(false);
+					isLargeStraightButton.setOpaque(true);
+					isLargeStraightButton.setContentAreaFilled(true);
+					isLargeStraightButton.setBorderPainted(true);
+					scoreMap.put("Large Straight", ScoreCard.Instance.getIsLargeStraight());
+					scoreLock = true;
+				}
 			}
 		});
 
@@ -313,14 +380,16 @@ public class GUI {
 		isYahtzeeButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				isYahtzeeButton.setText("Yahtzee = " + ScoreCard.Instance.getIsYahtzee());
-				isYahtzeeButton.setBackground(Color.LIGHT_GRAY);
-				isYahtzeeButton.setEnabled(false);
-				isYahtzeeButton.setOpaque(true);
-				isYahtzeeButton.setContentAreaFilled(true);
-				isYahtzeeButton.setBorderPainted(true);
-				logic.isYahtzeeBonus = true;
-				scoreMap.put("Yahtzee", ScoreCard.Instance.getIsYahtzee());
+				if (!scoreLock) {
+					isYahtzeeButton.setText("Yahtzee = " + ScoreCard.Instance.getIsYahtzee());
+					isYahtzeeButton.setBackground(Color.LIGHT_GRAY);
+					isYahtzeeButton.setEnabled(false);
+					isYahtzeeButton.setOpaque(true);
+					isYahtzeeButton.setContentAreaFilled(true);
+					isYahtzeeButton.setBorderPainted(true);
+					scoreMap.put("Yahtzee", ScoreCard.Instance.getIsYahtzee());
+					scoreLock = true;
+				}
 			}
 		});
 
@@ -334,13 +403,16 @@ public class GUI {
 		isChanceButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				isChanceButton.setText("Chance = " + ScoreCard.Instance.getIsChance());
-				isChanceButton.setBackground(Color.LIGHT_GRAY);
-				isChanceButton.setEnabled(false);
-				isChanceButton.setOpaque(true);
-				isChanceButton.setContentAreaFilled(true);
-				isChanceButton.setBorderPainted(true);
-				scoreMap.put("Chance", ScoreCard.Instance.getIsChance());
+				if (!scoreLock) {
+					isChanceButton.setText("Chance = " + ScoreCard.Instance.getIsChance());
+					isChanceButton.setBackground(Color.LIGHT_GRAY);
+					isChanceButton.setEnabled(false);
+					isChanceButton.setOpaque(true);
+					isChanceButton.setContentAreaFilled(true);
+					isChanceButton.setBorderPainted(true);
+					scoreMap.put("Chance", ScoreCard.Instance.getIsChance());
+					scoreLock = true;
+				}
 			}
 		});
 		
@@ -382,16 +454,10 @@ public class GUI {
 				numList.add(dice5);
 
 				if (notice % 3 == 0) {
-					noticeLabel.setText("<html><p style='font-size:15px'> This is the last roll in this round! </p></html>");
-					dice1.unHold();
-					dice2.unHold();
-					dice3.unHold();
-					dice4.unHold();
-					dice5.unHold();
 					roll.setText("Start Next Round!");
+					noticeLabel.setText("<html><p style='font-size:15px'> This is the last roll in this round! </p></html>");
 					notice = 1;
-				}
-				else {
+				} else {
 					noticeLabel.setText("");
 					roll.setText("Roll!");
 					notice++;
@@ -483,8 +549,7 @@ public class GUI {
 					gui.setVisible(false);
 					newGame.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							ScoreCard.Instance.round = 1;
-							makeGameBoard();
+							restart();
 							gameOver.setVisible(false);
 						}
 					});
