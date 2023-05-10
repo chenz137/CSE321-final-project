@@ -31,6 +31,20 @@ public class logicTest {
         d4.setValue(1);
         d5.setValue(1);
         assert logic.isOnes(dice) == 5;
+
+        d1.setValue(1);
+        d2.setValue(2);
+        d3.setValue(3);
+        d4.setValue(4);
+        d5.setValue(5);
+        assert logic.isOnes(dice) == 1;
+
+        d1.setValue(2);
+        d2.setValue(2);
+        d3.setValue(3);
+        d4.setValue(4);
+        d5.setValue(5);
+        assert logic.isOnes(dice) == 0;
     }
 
     @Test
@@ -41,6 +55,20 @@ public class logicTest {
         d4.setValue(2);
         d5.setValue(2);
         assert logic.isTwos(dice) == 10;
+
+        d1.setValue(1);
+        d2.setValue(2);
+        d3.setValue(3);
+        d4.setValue(4);
+        d5.setValue(5);
+        assert logic.isTwos(dice) == 2;
+
+        d1.setValue(1);
+        d2.setValue(1);
+        d3.setValue(3);
+        d4.setValue(4);
+        d5.setValue(5);
+        assert logic.isTwos(dice) == 0;
     }
 
     @Test
@@ -51,6 +79,20 @@ public class logicTest {
         d4.setValue(3);
         d5.setValue(3);
         assert logic.isThrees(dice) == 15;
+
+        d1.setValue(1);
+        d2.setValue(2);
+        d3.setValue(3);
+        d4.setValue(4);
+        d5.setValue(5);
+        assert logic.isThrees(dice) == 3;
+
+        d1.setValue(1);
+        d2.setValue(2);
+        d3.setValue(2);
+        d4.setValue(4);
+        d5.setValue(5);
+        assert logic.isThrees(dice) == 0;
     }
 
     @Test
@@ -61,6 +103,20 @@ public class logicTest {
         d4.setValue(4);
         d5.setValue(4);
         assert logic.isFours(dice) == 20;
+
+        d1.setValue(1);
+        d2.setValue(2);
+        d3.setValue(3);
+        d4.setValue(4);
+        d5.setValue(5);
+        assert logic.isFours(dice) == 4;
+
+        d1.setValue(1);
+        d2.setValue(2);
+        d3.setValue(3);
+        d4.setValue(3);
+        d5.setValue(5);
+        assert logic.isFours(dice) == 0;
     }
 
     @Test
@@ -71,6 +127,20 @@ public class logicTest {
         d4.setValue(5);
         d5.setValue(5);
         assert logic.isFives(dice) == 25;
+
+        d1.setValue(1);
+        d2.setValue(2);
+        d3.setValue(3);
+        d4.setValue(4);
+        d5.setValue(5);
+        assert logic.isFives(dice) == 5;
+
+        d1.setValue(1);
+        d2.setValue(2);
+        d3.setValue(3);
+        d4.setValue(4);
+        d5.setValue(4);
+        assert logic.isFives(dice) == 0;
     }
 
     @Test
@@ -81,6 +151,20 @@ public class logicTest {
         d4.setValue(6);
         d5.setValue(6);
         assert logic.isSixes(dice) == 30;
+
+        d1.setValue(1);
+        d2.setValue(2);
+        d3.setValue(3);
+        d4.setValue(4);
+        d5.setValue(5);
+        assert logic.isSixes(dice) == 0;
+
+        d1.setValue(1);
+        d2.setValue(2);
+        d3.setValue(3);
+        d4.setValue(4);
+        d5.setValue(6);
+        assert logic.isSixes(dice) == 6;
     }
 
     @Test
@@ -99,6 +183,13 @@ public class logicTest {
         d4.setValue(2);
         d5.setValue(3);
         assert logic.isThreeOfAKind(dice) == 8;
+
+        d1.setValue(1);
+        d2.setValue(2);
+        d3.setValue(3);
+        d4.setValue(4);
+        d5.setValue(5);
+        assert logic.isThreeOfAKind(dice) == 0;
     }
 
     @Test
@@ -109,6 +200,13 @@ public class logicTest {
         d4.setValue(1);
         d5.setValue(3);
         assert logic.isFourOfAKind(dice) == 7;
+
+        d1.setValue(1);
+        d2.setValue(2);
+        d3.setValue(3);
+        d4.setValue(4);
+        d5.setValue(5);
+        assert logic.isFourOfAKind(dice) == 0;
     }
 
     @Test
@@ -119,10 +217,24 @@ public class logicTest {
         d4.setValue(2);
         d5.setValue(2);
         assert logic.isFullHouse(dice) == 25;
+
+        d1.setValue(1);
+        d2.setValue(2);
+        d3.setValue(3);
+        d4.setValue(4);
+        d5.setValue(5);
+        assert logic.isFullHouse(dice) == 0;
     }
 
     @Test
     public void isSmallStraight() {
+        d1.setValue(1);
+        d2.setValue(2);
+        d3.setValue(3);
+        d4.setValue(4);
+        d5.setValue(5);
+        assert logic.isSmallStraight(dice) == 30;
+
         d1.setValue(1);
         d2.setValue(2);
         d3.setValue(3);
@@ -139,6 +251,13 @@ public class logicTest {
         d4.setValue(5);
         d5.setValue(6);
         assert logic.isLargeStraight(dice) == 40;
+
+        d1.setValue(1);
+        d2.setValue(1);
+        d3.setValue(1);
+        d4.setValue(4);
+        d5.setValue(5);
+        assert logic.isLargeStraight(dice) == 0;
     }
 
     @Test
@@ -149,6 +268,13 @@ public class logicTest {
         d4.setValue(1);
         d5.setValue(1);
         assert logic.isYahtzee(dice) == 50;
+
+        d1.setValue(1);
+        d2.setValue(2);
+        d3.setValue(3);
+        d4.setValue(4);
+        d5.setValue(5);
+        assert logic.isYahtzee(dice) == 0;
     }
 
     @Test
@@ -159,6 +285,13 @@ public class logicTest {
         d4.setValue(4);
         d5.setValue(5);
         assert logic.isChance(dice) == 15;
+
+        d1.setValue(1);
+        d2.setValue(1);
+        d3.setValue(1);
+        d4.setValue(1);
+        d5.setValue(1);
+        assert logic.isChance(dice) == 5;
     }
 
     @Test
